@@ -30,8 +30,11 @@ export default {
   },
   methods:{
     checker(idx) {
-      this.rooms[idx].work = !this.rooms[idx].work
-      this.$axios.post('http://localhost:8080/change-state', this.rooms[idx])
+      this.rooms[idx].workState = !this.rooms[idx].workState
+      let data = {}
+      data.room = this.rooms[idx].room
+      data.workState = this.rooms[idx].workState
+      this.$axios.post('/change-state', data)
         .then((Response)=>{
           console.log(Response)
         }).catch((e)=>{
@@ -39,7 +42,7 @@ export default {
         })
     },
     getWorks() {
-      this.$axios.get('http://localhost:8080/work-state')
+      this.$axios.get('/work-state')
       .then((Response)=> {
         // console.log(Response.data);
         this.rooms = Response.data;
@@ -69,7 +72,7 @@ export default {
   left : 35%;
   height: 300px;
   width: 30%;
-  background: rgba(196, 226, 60, 0.692);
+  background: yellow;
 }
 .brand {
   height:  30%;

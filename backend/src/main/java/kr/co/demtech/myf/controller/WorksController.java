@@ -30,9 +30,10 @@ public class WorksController {
 
   @PostMapping("/change-state")
   public ResponseEntity<HttpStatus> updateWorks(@RequestBody Work param) {
-    log.info(param.toString());
+    log.info("RequestBody:⩥ " + param.toString());
     LocalDateTime current = LocalDateTime.now();
     Timestamp ts = Timestamp.valueOf(current);
+    log.info(ts.toString());
     if (param.isWorkState() == false) {
       param.setWorkOutAt(ts);
     } else {

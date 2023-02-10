@@ -2,9 +2,10 @@
 <mapper namespace="kr.co.demtech.myf.mapper.WorksMapper">
   <select id="getWorks" resultType="Work">
     select
-      *
+      room, work_state, work_in_at, work_out_at
     From
       works
+    ORDER BY room
   </select>
   <update id="updateWorks"> 
     update 
