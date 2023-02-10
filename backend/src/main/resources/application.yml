@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+
+  datasource:
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: post123!
+
+mybatis:
+  type-aliases-package: kr.co.demtech.myf.domain
+  configuration:
+    map-underscore-to-camel-case: true

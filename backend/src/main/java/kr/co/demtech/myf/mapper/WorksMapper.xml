@@ -1,0 +1,25 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.demtech.myf.mapper.WorksMapper">
+  <select id="getWorks" resultType="Work">
+    select
+      *
+    From
+      works
+  </select>
+  <update id="updateWorks"> 
+    update 
+      works 
+    set 
+      work_state = #{workState}, 
+    <if test="workInAt != null">
+      work_in_at = #{workInAt} 
+    </if>
+    <if test="workOutAt != null"> 
+      work_out_at = #{workOutAt} 
+    </if> 
+    where 
+      room = #{room} 
+  </update>
+
+
+</mapper>
